@@ -1,0 +1,16 @@
+{
+  "name": "notify-change",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^4.0.1",
+    "textbelt": "0.0.3",
+    "yql": "^1.0.2"
+  }
+}
