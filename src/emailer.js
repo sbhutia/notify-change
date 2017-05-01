@@ -1,16 +1,22 @@
 /* eslint-env node */
 var nodemailer = require("nodemailer");
+var config = require("./config");
 
-var transport = nodemailer.createTransport();
+var transport = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: config.useremail,
+            pass: config.password 
+        }
+    });
 
 module.exports = {
-    sendEmail : function(from, to, subject, body){
+    sendEmail : function(to, subject, body){
         transport.sendMail({
-            from: 'sender@address',
-            to: 'receiver@gmail.com',
-            subject: 'hello',
-            html: '<b>hello world!</b>',
-            text: 'hello world!'
+            from: config.useremail,
+            to: to,
+            subject: subject,
+            text: body
         });
     }
 };

@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "nodemailer": "^4.0.1",
+    "sendmail": "^1.1.1",
     "textbelt": "0.0.3",
     "yql": "^1.0.2"
   }

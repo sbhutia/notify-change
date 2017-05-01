@@ -11,11 +11,15 @@ module.exports = {
         });
     },
     getTrackingInfo : function(param, callback){
-        var query = YQL("select * from html where url='https://www.indiapost.gov.in/VAS/Pages/trackconsignment.aspx?t=0r3LFfrnYm6Z5xaREdzaMA==' and xpath='//*[@id=\"secPgContent\"]'");
+        var query = YQL("select * from html where url='https://www.indiapost.gov.in/VAS/Pages/trackconsignment.aspx?t=" + param + "' and xpath='//*[@id=\"secPgContent\"]'");
         query.exec( function (error, response){
-            var status = response.query.results.section.div.div[1].div[1].div[0].span[1].content;
-            var eventDetails = response.query.results.section.div.div[1].div[1].div[1].div.table.tbody;
-            callback({status: status, details : eventDetails});
+            if(error){
+                console.error(error.toString());
+            }else{
+                var status = response.query.results.section.div.div[1].div[1].div[0].span[1].content;
+                var eventDetails = response.query.results.section.div.div[1].div[1].div[1].div.table.tbody;
+                callback({status: status, details : eventDetails});
+            }
         });
     }
 }
